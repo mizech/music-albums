@@ -1,0 +1,7 @@
+<h2>Create a new artist</h2>
+<%= form_with model: @artist do |form| %>
+    <%= form.text_field :name %>
+    <%= form.text_field :years_active %>
+    <%= form.text_field :members %>
+    <%= form.submit class: "btn btn-primary" %>
+<% end %>
