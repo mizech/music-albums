@@ -2,3 +2,10 @@
 <div><b>Name:</b> <%= @artist.name %></div>
 <div><b>Years active:</b> <%= @artist.years_active %></div>
 <div><b>Members:</b> <%= @artist.members %></div>
+<div>
+    <%= button_to "Delete", 
+        artist_path(@artist), 
+        method: :delete, 
+        data: { turbo_confirm: "Are you sure?" }, 
+        class: "btn btn-danger" %>
+</div>
