@@ -1,10 +1,22 @@
 class ArtistsController < ApplicationController
+  before_action(:find_artist, only: [ :show, :edit, :update ])
   def index
     @artists = Artist.all
   end
 
   def show
     @artist = Artist.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @artist.update(artist_params)
+      redirect_to @artist
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def new
@@ -21,7 +33,12 @@ class ArtistsController < ApplicationController
     end
   end
 
+  private
   def artist_params
     params.expect(artist: [ :name, :years_active, :members ])
+  end
+
+  def find_artist
+    @artist = Artist.find(params[:id])
   end
 end
