@@ -1,0 +1,20 @@
+<h2>Create a new album</h2>
+<%= form_with model: @album do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :price %>
+        <%= form.text_field :price %>
+    </div>
+
+    <div>
+        <%= form.select :artist_id, Artist.all.map { |artist| [artist.name, artist.id] } %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
