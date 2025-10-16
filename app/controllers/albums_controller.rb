@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [ :show, :create, :edit, :update ]
+  before_action :set_album, only: [ :show, :create, :edit, :update, :destroy ]
   def index
     @albums = Album.all
   end
@@ -30,6 +30,12 @@ class AlbumsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @album.destroy
+
+    redirect_to albums_path, notice: "Album has become deleted."
   end
 
   private
