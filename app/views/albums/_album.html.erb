@@ -1,4 +1,6 @@
-<div>
-    <h3><%= album.name %></h3>
-    <p>Price: <%= album.price %></p>
-</div>
+<tr>
+    <td><%= album.name %></td>
+    <td>Price: <%= album.price %></td>
+    <td><%= link_to "Show", album_path(album), class: "btn btn-primary" %></td>
+    <td><%= link_to "Edit", edit_album_path(album), class: "btn btn-warning" %></td>
+</tr>

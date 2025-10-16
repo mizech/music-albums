@@ -1,0 +1,10 @@
+<h2>Album details</h2>
+<div><b>Name:</b> <%= @album.name %></div>
+<div><b>Price:</b> <%= @album.price %></div>
+<div>
+    <%= button_to "Delete", 
+        album_path(@album), 
+        method: :delete, 
+        data: { turbo_confirm: "Are you sure?" }, 
+        class: "btn btn-danger" %>
+</div>
