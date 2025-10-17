@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :albums
+  resources :albums do
+    resources :comments
+  end
   resources :artists
 
   get "up" => "rails/health#show", as: :rails_health_check

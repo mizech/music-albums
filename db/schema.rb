@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_11_083019) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_16_080147) do
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -28,5 +28,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_11_083019) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.text "text"
+    t.integer "album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_comments_on_album_id"
+  end
+
   add_foreign_key "albums", "artists"
+  add_foreign_key "comments", "albums"
 end

@@ -5,6 +5,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comment.album_id = @album.id
   end
 
   def edit
@@ -20,14 +22,17 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    # debugger
   end
 
   def create
     @album = Album.new(album_params)
 
     if @album.save
+      debugger
       redirect_to albums_path, notice: "Album was successfully created."
     else
+      debugger
       render :new, status: :unprocessable_entity
     end
   end

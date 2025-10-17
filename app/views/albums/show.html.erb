@@ -8,3 +8,23 @@
         data: { turbo_confirm: "Are you sure?" }, 
         class: "btn btn-danger" %>
 </div>
+<%= form_for([@album, @album.comments.build]) do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :text %>
+        <%= form.text_field :text %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
+
+<div>
+    <%= @album.comments.each do |comment| %>
+        <p><%= comment.text %></p>
+    <% end %>
+</div>
+
