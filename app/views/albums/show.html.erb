@@ -8,6 +8,7 @@
         data: { turbo_confirm: "Are you sure?" }, 
         class: "btn btn-danger" %>
 </div>
+
 <%= form_for([@album, @album.comments.build]) do |form| %>
     <div>
         <%= form.label :name %>
@@ -23,8 +24,13 @@
 <% end %>
 
 <div>
-    <%= @album.comments.each do |comment| %>
-        <p><%= comment.text %></p>
+    <% @album.comments.each do |comment| %>
+        <% if comment.name && comment.text %>
+            <div>
+                <p><strong><%= comment.name %></strong>: <%= comment.text %></p>
+                <%= link_to "Delete", album_comment_path([@album, comment]), data: { "turbo-method": :delete } %>
+            </div>
+        <% end %>
     <% end %>
 </div>
 
