@@ -27,7 +27,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
 
     if @artist.save
-      redirect_to root_path
+      redirect_to artists_path
     else
       render :new, status: :unprocessable_entity
     end
