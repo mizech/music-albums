@@ -28,7 +28,8 @@
         <% if comment.name && comment.text %>
             <div>
                 <p><strong><%= comment.name %></strong>: <%= comment.text %></p>
-                <%= link_to "Delete", album_comment_path([@album, comment]), data: { "turbo-method": :delete } %>
+                <%= link_to "Delete", album_comment_path([@album, comment]), data: { "turbo-method": :delete } %> | 
+                <%= link_to "Edit", edit_album_comment_path([@album, comment]) %>
             </div>
         <% end %>
     <% end %>

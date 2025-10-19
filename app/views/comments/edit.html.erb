@@ -1,0 +1,14 @@
+<h2>Edit comment</h2>
+<%= form_with model: [@album, @comment] do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :text %>
+        <%= form.text_field :text %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
