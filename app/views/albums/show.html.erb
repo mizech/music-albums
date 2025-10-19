@@ -9,19 +9,7 @@
         class: "btn btn-danger" %>
 </div>
 
-<%= form_for([@album, @album.comments.build]) do |form| %>
-    <div class="mb-3">
-        <%= form.label :name, class: "form-label" %>
-        <%= form.text_field :name, placeholder: "Your name", class: "form-control" %>
-    </div>
-    <div class="mb-3">
-        <%= form.label :text, class: "form-label" %>
-        <%= form.text_field :text, placeholder: "Your comment", class: "form-control" %>
-    </div>
-    <div class="mb-3">
-        <%= form.submit class: "btn btn-primary mb-3" %>
-    </div>
-<% end %>
+<%= render("form", album: @album ) %>
 
 <div>
     <% @album.comments.each do |comment| %>
