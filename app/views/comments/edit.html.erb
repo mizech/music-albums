@@ -1,14 +1,14 @@
 <h2>Edit comment</h2>
 <%= form_with model: [@album, @comment] do |form| %>
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, placeholder: "Your name" %>
     </div>
-    <div>
-        <%= form.label :text %>
-        <%= form.text_field :text %>
+    <div class="mb-3">
+        <%= form.label :text, class: "form-label" %>
+        <%= form.text_field :text, placeholder: "Your comment" %>
     </div>
-    <div>
-        <%= form.submit %>
+    <div class="mb-3">
+        <%= form.submit class: "btn btn-primary mb-3" %>
     </div>
 <% end %>
