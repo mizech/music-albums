@@ -1,19 +1,20 @@
 <%= form_with model: album do |form| %>
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, placeholder: "Album name", placeholder: "Album name" %>
     </div>
 
-    <div>
-        <%= form.label :price %>
-        <%= form.text_field :price %>
+    <div class="mb-3">
+        <%= form.label :price, class: "form-label" %>
+        <%= form.text_field :price, placeholder: "Album price", placeholder: "Album price" %>
     </div>
 
-    <div>
+    <div class="mb-3">
+        <%= form.label :artist_id, class: "form-label" %>
         <%= form.select :artist_id, Artist.all.map { |artist| [artist.name, artist.id] } %>
     </div>
 
-    <div>
-        <%= form.submit %>
+    <div class="mb-3">
+        <%= form.submit class: "btn btn-primary mb-3" %>
     </div>
 <% end %>

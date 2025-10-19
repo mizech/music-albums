@@ -1,6 +1,20 @@
 <%= form_with model: artist do |form| %>
-    <%= form.text_field :name %>
-    <%= form.text_field :years_active %>
-    <%= form.text_field :members %>
-    <%= form.submit class: "btn btn-primary" %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, id: "name", placeholder: "Artist name", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :years_active, class: "form-label" %>
+        <%= form.text_field :years_active, id: "years-active", placeholder: "Active years", class: "form-control" %>
+    </div>
+    
+    <div class="mb-3">
+        <%= form.label :members, class: "form-label" %>
+        <%= form.text_field :members, id: "members", placeholder: "Band members", class: "form-control" %>
+    </div>
+    
+    <div class="mb-3" >
+        <%= form.submit class: "btn btn-primary mb-3" %>
+    </div>
 <% end %>
