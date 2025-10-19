@@ -1,8 +1,8 @@
 <h2>Artist details</h2>
-<div><b>Name:</b> <%= @artist.name %></div>
-<div><b>Years active:</b> <%= @artist.years_active %></div>
-<div><b>Members:</b> <%= @artist.members %></div>
-<div>
+<div class="mb-3"><b>Name:</b> <%= @artist.name %></div>
+<div class="mb-3"><b>Years active:</b> <%= @artist.years_active %></div>
+<div class="mb-3"><b>Members:</b> <%= @artist.members %></div>
+<div class="mb-3">
     <%= button_to "Delete", 
         artist_path(@artist), 
         method: :delete, 

@@ -1,7 +1,7 @@
 <h2>Album details</h2>
-<div><b>Name:</b> <%= @album.name %></div>
-<div><b>Price:</b> <%= @album.price %></div>
-<div>
+<div class="mb-3"><b>Name:</b> <%= @album.name %></div>
+<div class="mb-3"><b>Price:</b> <%= @album.price %></div>
+<div class="mb-3">
     <%= button_to "Delete", 
         album_path(@album), 
         method: :delete, 
@@ -10,16 +10,16 @@
 </div>
 
 <%= form_for([@album, @album.comments.build]) do |form| %>
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, placeholder: "Your name", class: "form-control" %>
     </div>
-    <div>
-        <%= form.label :text %>
-        <%= form.text_field :text %>
+    <div class="mb-3">
+        <%= form.label :text, class: "form-label" %>
+        <%= form.text_field :text, placeholder: "Your comment", class: "form-control" %>
     </div>
-    <div>
-        <%= form.submit %>
+    <div class="mb-3">
+        <%= form.submit class: "btn btn-primary mb-3" %>
     </div>
 <% end %>
 
