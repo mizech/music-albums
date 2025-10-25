@@ -9,16 +9,14 @@
         class: "btn btn-danger" %>
 </div>
 
-<%= render("form", album: @album ) %>
+<turbo-frame id="add_comment">
+    <%= link_to "Add comment", new_album_comment_path(@album) %>
+</turbo-frame>
 
 <div>
     <% @album.comments.each do |comment| %>
         <% if comment.name && comment.text %>
-            <div>
-                <p><strong><%= comment.name %></strong>: <%= comment.text %></p>
-                <%= link_to "Delete", album_comment_path([@album, comment]), data: { "turbo-method": :delete } %> | 
-                <%= link_to "Edit", edit_album_comment_path([@album, comment]) %>
-            </div>
+            <div id="comments"></div>
         <% end %>
     <% end %>
 </div>

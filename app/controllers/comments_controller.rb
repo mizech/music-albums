@@ -3,9 +3,16 @@ class CommentsController < ApplicationController
   def create
     @album = Album.find(params[:album_id])
     @comment = @album.comments.create(set_params)
-    redirect_to album_path(@album)
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
+  def new
+    # debugger
+    @album = Album.find(params[:album_id])
+  end
   def edit
   end
 
