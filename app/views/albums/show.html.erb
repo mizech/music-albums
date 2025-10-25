@@ -13,11 +13,15 @@
     <%= link_to "Add comment", new_album_comment_path(@album) %>
 </turbo-frame>
 
+
 <div>
-    <% @album.comments.each do |comment| %>
-        <% if comment.name && comment.text %>
-            <div id="comments"></div>
+    <div id="comments">
+        <% @album.comments.each do |comment| %>
+            <% if comment.name && comment.text %>
+                <%= render "comments/comment", album: @album, comment: comment %>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
 </div>
+
 

@@ -4,13 +4,15 @@ class CommentsController < ApplicationController
     @album = Album.find(params[:album_id])
     @comment = @album.comments.create(set_params)
 
+    puts @album
+    puts @comment
+
     respond_to do |format|
       format.turbo_stream
     end
   end
 
   def new
-    # debugger
     @album = Album.find(params[:album_id])
   end
   def edit
@@ -39,6 +41,11 @@ class CommentsController < ApplicationController
   def set_attributes
     segms = params[:album_id].split "/"
     @album = Album.find(segms.first)
-    @comment = @album.comments.find(segms.last)
+    @comment = nil
+    if segms.size == 2
+      @comment = @album.comments.find(segms.last)
+    else
+      @comment = params[:id]
+    end
   end
 end

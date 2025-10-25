@@ -1,3 +1,4 @@
-<turbo-stream action="append" target="comments" >
+<%= turbo_stream.append "comments" %>
     <%= render "comment", album: @album, comment: @comment %>
-</turbo-stream>
+<% turbo_stream %>
+
