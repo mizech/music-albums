@@ -1,4 +1,8 @@
-<%= turbo_stream.append "comments" do %>
-    <%= render "comment", album: @album, comment: @comment %>
+<%= turbo_stream.append "hook1" do %>
+    <div class="comment mb-3">
+        <div><strong><%= @comment.name %></strong>: <%= @comment.text %></div>
+        <%= link_to "Delete", album_comment_path(@album.id, @comment), data: { "turbo-method": :delete } %> |
+        <%= link_to "Edit", edit_album_comment_path(@album.id, @comment) %>
+    </div>
 <% end %>
 

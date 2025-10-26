@@ -4,9 +4,6 @@ class CommentsController < ApplicationController
     @album = Album.find(params[:album_id])
     @comment = @album.comments.create(set_params)
 
-    puts @album
-    puts @comment
-
     respond_to do |format|
       format.turbo_stream
     end
