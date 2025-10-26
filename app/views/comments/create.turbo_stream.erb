@@ -6,3 +6,9 @@
     </div>
 <% end %>
 
+<%= turbo_stream.replace "add_comment" do %>
+    <turbo-frame id="add_comment">
+        <%= link_to "Add comment", new_album_comment_path(@album), class: "btn btn-primary" %>
+    </turbo-frame>
+<% end %>
+
