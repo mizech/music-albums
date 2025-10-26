@@ -28,6 +28,7 @@ class ArtistsController < ApplicationController
 
     if @artist.save
       redirect_to artists_path
+      flash[:notice] = "Artist has become created successfully."
     else
       render :new, status: :unprocessable_entity
     end

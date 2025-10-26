@@ -13,7 +13,6 @@
     <%= link_to "Add comment", new_album_comment_path(@album), class: "btn btn-primary" %>
 </turbo-frame>
 
-
 <div id="hook1">
     <% @album.comments.each do |comment| %>
         <% if comment.name && comment.text %>
