@@ -10,18 +10,16 @@
 </div>
 
 <turbo-frame id="add_comment">
-    <%= link_to "Add comment", new_album_comment_path(@album) %>
+    <%= link_to "Add comment", new_album_comment_path(@album), class: "btn btn-primary" %>
 </turbo-frame>
 
 
-<div>
-    <div id="comments">
-        <% @album.comments.each do |comment| %>
-            <% if comment.name && comment.text %>
-                <%= render "comments/comment", album: @album, comment: comment %>
-            <% end %>
+<div id="hook1">
+    <% @album.comments.each do |comment| %>
+        <% if comment.name && comment.text %>
+            <%= render "comments/comment", album: @album, comment: comment %>
         <% end %>
-    </div>
+    <% end %>
 </div>
 
 

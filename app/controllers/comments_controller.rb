@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
     if segms.size == 2
       @comment = @album.comments.find(segms.last)
     else
-      @comment = params[:id]
+      @comment = @album.comments.find(params[:id])
     end
   end
 end
