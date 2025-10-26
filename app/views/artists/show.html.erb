@@ -2,6 +2,13 @@
 <div class="mb-3"><b>Name:</b> <%= @artist.name %></div>
 <div class="mb-3"><b>Years active:</b> <%= @artist.years_active %></div>
 <div class="mb-3"><b>Members:</b> <%= @artist.members %></div>
+
+<div class="mb-3"><b>Albums:</b></div>
+<table class="table">
+    <% @artist.albums.each do |album| %>
+        <tr><td><%= album.name %></td><td><%= album.price %> €</td><td><%= link_to "Show", album_path(album), class: "btn btn-primary" %></td></tr>
+    <% end %>
+</table>
 <div class="mb-3">
     <%= button_to "Delete", 
         artist_path(@artist), 
