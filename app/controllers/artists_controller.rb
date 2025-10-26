@@ -35,6 +35,12 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
+    @artist.albums.each do |album|
+      album.comments.each do |comment|
+        comment.destroy
+      end
+      album.destroy
+    end
     @artist.destroy
     redirect_to artists_path
   end
