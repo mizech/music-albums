@@ -1,4 +1,14 @@
 <%= form_with model: artist do |form| %>
+    <% if artist.errors.any? %>
+        <div>
+            <div class="sum-errors"><b><%= pluralize(artist.errors.count, "error") %> present</b></div>
+            <ul>
+                <% artist.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
     <div class="mb-3">
         <%= form.label :name, class: "form-label" %>
         <%= form.text_field :name, id: "name", placeholder: "Artist name", class: "form-control" %>

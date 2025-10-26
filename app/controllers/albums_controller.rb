@@ -29,6 +29,7 @@ class AlbumsController < ApplicationController
 
     if @album.save
       redirect_to albums_path, notice: "Album was successfully created."
+      flash[:notice] = "Album has become created successfully."
     else
       render :new, status: :unprocessable_entity
     end
