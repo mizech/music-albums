@@ -22,3 +22,15 @@ id = Artist.all.first.id
 5.times do |i|
   Album.create(name: "Album_name_0#{i}", price: 14.99, artist_id: id)
 end
+
+comments = [ "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+  "Aenean commodo ligula eget dolor.",
+  "Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.",
+  "Quisque rutrum. Aenean imperdiet.",
+  "Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.",
+  "Phasellus a est." ]
+3.times do |i|
+  Comment.create(name: "John Smith",
+    text: comments.sample,
+    album_id: Album.first.id)
+end
