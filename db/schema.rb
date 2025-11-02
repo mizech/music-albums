@@ -52,3 +52,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_02_091033) do
   add_foreign_key "albums", "artists"
   add_foreign_key "comments", "albums"
 end
+
+u = User.new(:email => "root@root.de", :password => 'root', :password_confirmation => 'root')
+u.save
