@@ -27,3 +27,7 @@
     margin-top: 4px;
     margin-bottom: 16px;
 }
+
+.form-control.invalid {
+    border: 3px solid red;
+}
